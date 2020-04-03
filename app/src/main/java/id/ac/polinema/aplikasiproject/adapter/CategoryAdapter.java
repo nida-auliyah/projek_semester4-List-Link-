@@ -38,7 +38,6 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
             logoImage = itemView.findViewById(R.id.image_logo);
             nameText = itemView.findViewById(R.id.text_name);
 
-
         }
     }
     @NonNull
