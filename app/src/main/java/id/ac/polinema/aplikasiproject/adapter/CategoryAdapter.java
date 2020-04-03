@@ -32,12 +32,18 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
     public static class ViewHolder extends RecyclerView.ViewHolder {
         ImageView logoImage;
         TextView nameText;
-        RecyclerView ItemList;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             logoImage = itemView.findViewById(R.id.image_logo);
             nameText = itemView.findViewById(R.id.text_name);
-
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Context context = v.getContext();
+                    Intent intent = new Intent(context, PentingActivity.class);
+                    context.startActivity(intent);
+                }
+            });
         }
     }
     @NonNull
@@ -54,6 +60,7 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
         // Atur image di baris ini, dapat menggunakan Picasso atau Glide
         Picasso.get().load(item.getLogo()).into(holder.logoImage);
         holder.nameText.setText(item.getNama());
+
     }
 
     @Override
