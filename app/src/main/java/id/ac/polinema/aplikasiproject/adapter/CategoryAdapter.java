@@ -40,8 +40,10 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                 @Override
                 public void onClick(View v) {
                     Context context = v.getContext();
-                    Intent intent = new Intent(context, PentingActivity.class);
-                    context.startActivity(intent);
+                    if (nameText.getText().equals("Link Penting")) {
+                        Intent intent = new Intent(context, PentingActivity.class);
+                        context.startActivity(intent);
+                    }
                 }
             });
         }
