@@ -16,6 +16,8 @@ import com.squareup.picasso.Picasso;
 import java.util.List;
 
 import id.ac.polinema.aplikasiproject.CategoryActivity;
+import id.ac.polinema.aplikasiproject.FavouriteActivity;
+import id.ac.polinema.aplikasiproject.KurangPentingActivity;
 import id.ac.polinema.aplikasiproject.PentingActivity;
 import id.ac.polinema.aplikasiproject.R;
 import id.ac.polinema.aplikasiproject.models.Category;
@@ -42,6 +44,12 @@ public class CategoryAdapter extends RecyclerView.Adapter<CategoryAdapter.ViewHo
                     Context context = v.getContext();
                     if (nameText.getText().equals("Link Penting")) {
                         Intent intent = new Intent(context, PentingActivity.class);
+                        context.startActivity(intent);
+                    }else if (nameText.getText().equals("Link Kurang Penting")) {
+                        Intent intent = new Intent(context, KurangPentingActivity.class);
+                        context.startActivity(intent);
+                    }else {
+                        Intent intent = new Intent(context, FavouriteActivity.class);
                         context.startActivity(intent);
                     }
                 }
