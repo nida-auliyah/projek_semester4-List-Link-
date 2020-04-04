@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".FavouriteActivity"></activity>
+        <activity android:name=".SaveActivity"></activity>
+        <activity android:name=".FavouriteActivity" />
         <activity android:name=".KurangPentingActivity" />
         <activity android:name=".PentingActivity" />
-        <activity android:name=".CategoryAddActivity" />
         <activity android:name=".CategoryActivity" />
         <activity android:name=".MainActivity">
             <intent-filter>
