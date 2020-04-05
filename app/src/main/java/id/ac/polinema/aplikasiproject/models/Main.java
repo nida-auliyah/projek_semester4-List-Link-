@@ -8,32 +8,14 @@ public class Main implements Parcelable {
     private String link;
     private String tanggal;
 
+    public Main() {
+    }
+
     public Main(String nama, String link, String tanggal) {
         this.nama = nama;
         this.link = link;
         this.tanggal = tanggal;
     }
-
-    public Main() {
-    }
-
-    protected Main(Parcel in) {
-        nama = in.readString();
-        link = in.readString();
-        tanggal = in.readString();
-    }
-
-    public static final Creator<Main> CREATOR = new Creator<Main>() {
-        @Override
-        public Main createFromParcel(Parcel in) {
-            return new Main(in);
-        }
-
-        @Override
-        public Main[] newArray(int size) {
-            return new Main[size];
-        }
-    };
 
     public String getNama() {
         return nama;
@@ -59,7 +41,6 @@ public class Main implements Parcelable {
         this.tanggal = tanggal;
     }
 
-
     @Override
     public int describeContents() {
         return 0;
@@ -71,4 +52,23 @@ public class Main implements Parcelable {
         dest.writeString(link);
         dest.writeString(tanggal);
     }
+
+    protected Main(Parcel in) {
+        nama = in.readString();
+        link = in.readString();
+        tanggal = in.readString();
+    }
+
+    public static final Creator<Main> CREATOR = new Creator<Main>() {
+        @Override
+        public Main createFromParcel(Parcel source) {
+            return new Main(source);
+        }
+
+        @Override
+        public Main[] newArray(int size) {
+            return new Main[size];
+        }
+    };
+
 }

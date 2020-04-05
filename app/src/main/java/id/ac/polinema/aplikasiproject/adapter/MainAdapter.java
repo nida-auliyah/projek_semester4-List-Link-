@@ -7,19 +7,25 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.util.List;
-
 import id.ac.polinema.aplikasiproject.R;
 import id.ac.polinema.aplikasiproject.models.Main;
 
 public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
+    public interface onItemMainListener {
+        void onMainClicked(int index, Main item);
+    }
     private List<Main> items;
     private onItemMainListener Listener;
 
+    public MainAdapter(List<Main> items, onItemMainListener listener) {
+        this.items = items;
+        this.Listener = listener;
+    }
+
     @NonNull
     @Override
-    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public MainAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_main, parent, false);
         return new ViewHolder(view);
@@ -35,6 +41,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     public int getItemCount() {
         return (items != null) ? items.size() : 0;
     }
+
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView descriptionText;
@@ -58,15 +65,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
                 }
             });
         }
-    }
-
-    public interface onItemMainListener {
-        void onMainClicked(int index, Main item);
-    }
-
-    public MainAdapter(List<Main> items, onItemMainListener listener) {
-        this.items = items;
-        Listener = listener;
     }
 
 }

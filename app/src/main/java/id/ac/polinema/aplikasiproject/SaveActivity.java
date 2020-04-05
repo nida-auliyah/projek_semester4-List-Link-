@@ -21,6 +21,10 @@ public class SaveActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_save);
 
+        descriptionInput = findViewById(R.id.input_description);
+        linkInput = findViewById(R.id.input_link);
+        tanggalInput = findViewById(R.id.input_tanggal);
+
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
             item = extras.getParcelable(PentingActivity.MAIN_KEY);

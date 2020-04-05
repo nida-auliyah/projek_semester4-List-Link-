@@ -18,14 +18,14 @@
         layout="@layout/content_penting"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="50dp" />
+        android:layout_marginTop="70dp" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/floatingActionButton"
+        android:id="@+id/fab_penting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="350dp"
-        android:layout_marginTop="660dp"
+        android:layout_marginLeft="300dp"
+        android:layout_marginTop="500dp"
         android:clickable="true"
         app:srcCompat="@android:drawable/ic_input_add" />
 

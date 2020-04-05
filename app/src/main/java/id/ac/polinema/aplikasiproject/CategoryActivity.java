@@ -37,7 +37,6 @@ public class CategoryActivity extends AppCompatActivity {
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
         teamsView.setLayoutManager(layoutManager);
 
-
     }
 
     @Override
