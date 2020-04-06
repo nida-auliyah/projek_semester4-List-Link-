@@ -20,14 +20,12 @@
             android:id="@+id/text_Link"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="30dp"
-            android:layout_marginEnd="270dp"
+            android:layout_marginTop="60dp"
             android:text="Title of Link"
             android:textSize="18sp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="@+id/text_description" />
 
         <TextView
             android:id="@+id/text_description"
@@ -35,6 +33,7 @@
             android:layout_height="wrap_content"
             android:text="The contain of link"
             android:textAlignment="textEnd"
+            android:textColor="#E6FF5722"
             android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,13 +43,28 @@
             android:id="@+id/text_tanggal"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="270dp"
+            android:layout_marginTop="30dp"
             android:text="Tanggal"
             android:textAlignment="textEnd"
+            android:textColor="#E6FF5722"
             android:textSize="20dp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fb_web"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#E6FF5722"
+            android:backgroundTintMode="screen"
+            android:clickable="true"
+            android:tint="#575151"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:rippleColor="#FFFFFF"
+            app:srcCompat="@drawable/ic_orange_website" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

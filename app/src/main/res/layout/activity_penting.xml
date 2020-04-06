@@ -12,6 +12,7 @@
         android:layout_height="wrap_content"
         android:text="Daftar Link"
         android:textAlignment="center"
+        android:textColor="#E6FF5722"
         android:textSize="30dp" />
 
     <include
