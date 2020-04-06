@@ -42,7 +42,7 @@ public class KurangPentingActivity extends AppCompatActivity implements KurangPe
             public void onClick(View view) {
                 // TODO: Tambahkan event click fab di sini
 
-                Intent intent = new Intent(KurangPentingActivity.this, SaveActivity.class);
+                Intent intent = new Intent(KurangPentingActivity.this, SavekpActivity.class);
                 intent.putExtra(KURANGPENTING_KEY, new KurangPenting());
                 startActivityForResult(intent, INSERT_REQUEST);
 
@@ -99,7 +99,7 @@ public class KurangPentingActivity extends AppCompatActivity implements KurangPe
 
     @Override
     public void onKurangPentingClicked(int index, KurangPenting item) {
-        Intent intent = new Intent(this, SaveActivity.class);
+        Intent intent = new Intent(this, SavekpActivity.class);
         intent.putExtra(KURANGPENTING_KEY, item);
         intent.putExtra(INDEX_KEY, 0);
         startActivityForResult(intent, UPDATE_REQUEST);

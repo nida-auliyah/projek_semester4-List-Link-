@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.RadioGroup;
 
 import id.ac.polinema.aplikasiproject.models.Main;
 
@@ -27,7 +26,7 @@ public class SaveActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
-            
+
             item = extras.getParcelable(PentingActivity.MAIN_KEY);
             index = extras.getInt(PentingActivity.INDEX_KEY, 0);
             descriptionInput.setText(item.getNama());
