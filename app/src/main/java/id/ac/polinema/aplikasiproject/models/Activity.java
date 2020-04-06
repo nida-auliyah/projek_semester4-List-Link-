@@ -6,10 +6,12 @@ import java.util.List;
 public class Activity {
     private List<Main> mains;
     private List<KurangPenting> kp;
+    private List<Favourite> f;
 
     public Activity() {
-            this.mains = new ArrayList<>();
-            this.kp = new ArrayList<>();
+        this.mains = new ArrayList<>();
+        this.kp = new ArrayList<>();
+        this.f = new ArrayList<>();
     }
 
 
@@ -45,5 +47,22 @@ public class Activity {
 
     public void updateKurangpenting(int index, KurangPenting p) {
         this.kp.set(index, p);
+    }
+
+    public List<Favourite> getFavourite() {
+        return f;
+    }
+
+    public void addFavourite(Favourite favourite) {
+        this.f.add(favourite);
+    }
+
+    public void removeFavourite(int index) {
+        Favourite fav = f.get(index);
+        this.f.remove(fav);
+    }
+
+    public void updateFavourite(int index, Favourite f) {
+        this.f.set(index, f);
     }
 }

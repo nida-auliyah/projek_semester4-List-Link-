@@ -1,0 +1,55 @@
+package id.ac.polinema.aplikasiproject;
+
+import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+
+import id.ac.polinema.aplikasiproject.models.Favourite;
+
+public class SavefavouriteActivity extends AppCompatActivity {
+
+    private EditText descriptionInput;
+    private EditText linkInput;
+    private EditText tanggalInput;
+    private Favourite item;
+    private int index;
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_savefavourite);
+
+        descriptionInput = findViewById(R.id.input_descriptionf);
+        linkInput = findViewById(R.id.input_linkf);
+        tanggalInput = findViewById(R.id.input_tanggalf);
+
+        Bundle extras = getIntent().getExtras();
+        if (extras != null) {
+
+            item = extras.getParcelable(FavouriteActivity.FAVOURITE_KEY);
+            index = extras.getInt(FavouriteActivity.INDEX_KEY, 0);
+            descriptionInput.setText(item.getNama());
+            linkInput.setText(item.getLink());
+            tanggalInput.setText(item.getTanggal());
+        }
+
+    }
+
+    public void handlesimpanf(View view) {
+        String description = descriptionInput.getText().toString();
+        String link = linkInput.getText().toString();
+        String tanggal = tanggalInput.getText().toString();
+
+        item.setNama(description);
+        item.setLink(link);
+        item.setTanggal(tanggal);
+
+        Intent intent = new Intent();
+        intent.putExtra(FavouriteActivity.FAVOURITE_KEY, item);
+        intent.putExtra(FavouriteActivity.INDEX_KEY, index);
+        setResult(RESULT_OK, intent);
+        finish();
+    }
+}
