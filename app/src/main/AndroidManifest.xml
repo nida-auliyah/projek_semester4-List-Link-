@@ -10,7 +10,7 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".KurangPentingSaveActivity"></activity>
+        <activity android:name=".KpsaveActivity"></activity>
         <activity android:name=".SaveActivity" />
         <activity android:name=".FavouriteActivity" />
         <activity android:name=".KurangPentingActivity" />
