@@ -27,6 +27,7 @@ public class SaveActivity extends AppCompatActivity {
 
         Bundle extras = getIntent().getExtras();
         if (extras != null) {
+            
             item = extras.getParcelable(PentingActivity.MAIN_KEY);
             index = extras.getInt(PentingActivity.INDEX_KEY, 0);
             descriptionInput.setText(item.getNama());

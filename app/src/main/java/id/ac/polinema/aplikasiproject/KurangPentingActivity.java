@@ -13,19 +13,19 @@ import android.view.View;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import id.ac.polinema.aplikasiproject.adapter.MainAdapter;
+import id.ac.polinema.aplikasiproject.adapter.KurangPentingAdapter;
 import id.ac.polinema.aplikasiproject.models.Activity;
-import id.ac.polinema.aplikasiproject.models.Main;
+import id.ac.polinema.aplikasiproject.models.KurangPenting;
 
-public class KurangPentingActivity extends AppCompatActivity implements MainAdapter.onItemMainListener{
+public class KurangPentingActivity extends AppCompatActivity implements KurangPentingAdapter.onItemKurangPentingListener{
 
-    public static final String MAIN_KEY = "MAIN";
+    public static final String KURANGPENTING_KEY = "KURANGPENTING";
     public static final String INDEX_KEY = "INDEX";
     public static final int INSERT_REQUEST = 1;
     public static final int UPDATE_REQUEST = 2;
 
-    private RecyclerView mainsView;
-    private MainAdapter adapter;
+    private RecyclerView View;
+    private KurangPentingAdapter adapter;
     private Activity account;
 
     @Override
@@ -33,9 +33,9 @@ public class KurangPentingActivity extends AppCompatActivity implements MainAdap
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_kurang_penting);
 
-        mainsView = findViewById(R.id.rv_penting);
+        View = findViewById(R.id.rv_penting);
 
-        FloatingActionButton fab = findViewById(R.id.fab_penting);
+        FloatingActionButton fab = findViewById(R.id.fb_kurangpenting);
 
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,7 +43,7 @@ public class KurangPentingActivity extends AppCompatActivity implements MainAdap
                 // TODO: Tambahkan event click fab di sini
 
                 Intent intent = new Intent(KurangPentingActivity.this, SaveActivity.class);
-                intent.putExtra(MAIN_KEY, new Main());
+                intent.putExtra(KURANGPENTING_KEY, new KurangPenting());
                 startActivityForResult(intent, INSERT_REQUEST);
 
             }
@@ -51,11 +51,11 @@ public class KurangPentingActivity extends AppCompatActivity implements MainAdap
 
 
         account = Application.getAccount();
-        adapter = new MainAdapter(account.getMains(), this);
-        mainsView.setAdapter(adapter);
+        adapter = new KurangPentingAdapter(account.getKurangpenting(), this);
+        View.setAdapter(adapter);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
-        mainsView.setLayoutManager(layoutManager);
+        View.setLayoutManager(layoutManager);
 
         ItemTouchHelper.SimpleCallback simpleItemTouchCallback = new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT | ItemTouchHelper.RIGHT) {
 
@@ -67,25 +67,25 @@ public class KurangPentingActivity extends AppCompatActivity implements MainAdap
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 int index = viewHolder.getAdapterPosition();
-                account.removeMain(index);
+                account.removeKurangPenting(index);
                 adapter.notifyDataSetChanged();
 
             }
         };
         ItemTouchHelper mItemTouchHelper = new ItemTouchHelper(simpleItemTouchCallback);
-        mItemTouchHelper.attachToRecyclerView(mainsView);
+        mItemTouchHelper.attachToRecyclerView(View);
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
-            Main main = data.getParcelableExtra(MAIN_KEY);
+            KurangPenting kp = data.getParcelableExtra(KURANGPENTING_KEY);
             if (requestCode == INSERT_REQUEST) {
-                account.addMain(main);
+                account.addKurangpenting(kp);
             }else if (requestCode == UPDATE_REQUEST) {
                 int index = data.getIntExtra(INDEX_KEY, 0);
-                account.updateMain(index, main);
+                account.updateKurangpenting(index, kp);
             }
             adapter.notifyDataSetChanged();
 
@@ -93,16 +93,15 @@ public class KurangPentingActivity extends AppCompatActivity implements MainAdap
     }
 
     @Override
-    public void onMainClicked(int index, Main item) {
+    public void onPointerCaptureChanged(boolean hasCapture) {
 
-        Intent intent = new Intent(this, SaveActivity.class);
-        intent.putExtra(MAIN_KEY, item);
-        intent.putExtra(INDEX_KEY, 0);
-        startActivityForResult(intent, UPDATE_REQUEST);
     }
 
     @Override
-    public void onPointerCaptureChanged(boolean hasCapture) {
-
+    public void onKurangPentingClicked(int index, KurangPenting item) {
+        Intent intent = new Intent(this, SaveActivity.class);
+        intent.putExtra(KURANGPENTING_KEY, item);
+        intent.putExtra(INDEX_KEY, 0);
+        startActivityForResult(intent, UPDATE_REQUEST);
     }
 }
