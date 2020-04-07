@@ -12,14 +12,15 @@
         android:layout_height="wrap_content"
         android:text="Daftar Link"
         android:textAlignment="center"
-        android:textColor="#E6FF5722"
+        android:textColor="#FF9422"
         android:textSize="30dp" />
 
     <include
         layout="@layout/content_penting"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="70dp" />
+        android:layout_marginTop="70dp"
+        android:background="#FF9422" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/fab_penting"
@@ -27,7 +28,9 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="300dp"
         android:layout_marginTop="500dp"
+        android:background="#FF9422"
         android:clickable="true"
+        android:tint="#FFFFFF"
         app:srcCompat="@android:drawable/ic_input_add" />
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>

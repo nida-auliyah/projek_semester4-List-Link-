@@ -8,6 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 
 import android.view.View;
@@ -50,7 +51,6 @@ public class PentingActivity extends AppCompatActivity implements MainAdapter.on
 
             }
         });
-
 
         account = Application.getAccount();
         adapter = new MainAdapter(account.getMains(), this);

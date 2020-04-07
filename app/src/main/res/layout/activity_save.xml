@@ -65,7 +65,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
         android:background="@drawable/custom_button"
-        android:backgroundTint="#E6FF5722"
+        android:backgroundTint="#FF9422"
         android:onClick="handlesimpan"
         android:text="Simpan"
         android:textColor="#F8F5F5"
