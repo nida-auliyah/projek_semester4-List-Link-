@@ -48,7 +48,7 @@ public class FavouriteAdapter extends RecyclerView.Adapter<FavouriteAdapter.View
                 Context context = v.getContext();
                 String url = holder.linkText.getText().toString();
 
-                if (!url.equals("https://")){
+                if (!url.startsWith("https")||!url.startsWith("http")){
                     url = "http://" + url;
                 }
                 Intent intent = new Intent(Intent.ACTION_VIEW);
