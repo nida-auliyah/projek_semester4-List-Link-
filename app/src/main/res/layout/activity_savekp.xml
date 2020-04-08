@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".SavekpActivity">
 
+    <Button
+        android:id="@+id/btn_uji3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/custom_button"
+        android:backgroundTint="#FF9422"
+        android:onClick="handleuji"
+        android:text="Uji Coba Link"
+        android:textColor="#FFFFFF"
+        app:layout_constraintEnd_toStartOf="@+id/guideline5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/TextInputLayout3" />
+
     <TextView
         android:id="@+id/textView6"
         android:layout_width="match_parent"
@@ -23,13 +37,14 @@
         android:id="@+id/btn_simpan2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:background="@drawable/custom_button"
         android:backgroundTint="#FF9422"
         android:onClick="handlesimpankp"
         android:text="Simpan"
         android:textColor="#FBFAFA"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/TextInputLayout3" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -70,5 +85,12 @@
             android:layout_height="wrap_content"
             android:hint="Tanggal Link" />
     </com.google.android.material.textfield.TextInputLayout>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

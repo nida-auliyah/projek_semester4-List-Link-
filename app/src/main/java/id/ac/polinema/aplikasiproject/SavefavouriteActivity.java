@@ -3,6 +3,7 @@ package id.ac.polinema.aplikasiproject;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
@@ -55,5 +56,15 @@ public class SavefavouriteActivity extends AppCompatActivity {
             setResult(RESULT_OK, intent);
             finish();
         }
+    }
+
+    public void handleuji(View view) {
+        String linkuji = linkInput.getText().toString();
+        if (!linkuji.startsWith("https")||!linkuji.startsWith("http")){
+            linkuji = "http://" + linkuji;
+        }
+        Intent intent = new Intent(Intent.ACTION_VIEW);
+        intent.setData(Uri.parse(linkuji));
+        startActivity(intent);
     }
 }
