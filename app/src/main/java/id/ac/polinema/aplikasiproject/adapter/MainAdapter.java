@@ -41,13 +41,13 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-        Main item = items.get(position);
+        final Main item = items.get(position);
         holder.bind(position, item);
         holder.web.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Context context = v.getContext();
-                String url = holder.linkText.getText().toString();
+                String url = item.getLink();
 
                 if (!url.startsWith("https")||!url.startsWith("http")){
                     url = "http://" + url;
@@ -67,19 +67,16 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     public class ViewHolder extends RecyclerView.ViewHolder{
         TextView descriptionText;
-        TextView linkText;
         TextView tanggalText;
         FloatingActionButton web;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             descriptionText = itemView.findViewById(R.id.text_description);
-            linkText = itemView.findViewById(R.id.text_Link);
             tanggalText = itemView.findViewById(R.id.text_tanggal);
             web = itemView.findViewById(R.id.fb_web);
         }
         public void bind(final int index, final Main item) {
             descriptionText.setText(item.getNama());
-            linkText.setText(item.getLink());
             tanggalText.setText(item.getTanggal());
             // TODO: Tambahkan interaksi click di sini
             itemView.setOnClickListener(new View.OnClickListener() {
