@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import id.ac.polinema.aplikasiproject.models.Favourite;
 
@@ -41,15 +42,18 @@ public class SavefavouriteActivity extends AppCompatActivity {
         String description = descriptionInput.getText().toString();
         String link = linkInput.getText().toString();
         String tanggal = tanggalInput.getText().toString();
+        if (description.equals("")||link.equals("")){
+            Toast.makeText(getApplicationContext(), "Data Harus diisi!",Toast.LENGTH_SHORT).show();
+        }else {
+            item.setNama(description);
+            item.setLink(link);
+            item.setTanggal(tanggal);
 
-        item.setNama(description);
-        item.setLink(link);
-        item.setTanggal(tanggal);
-
-        Intent intent = new Intent();
-        intent.putExtra(FavouriteActivity.FAVOURITE_KEY, item);
-        intent.putExtra(FavouriteActivity.INDEX_KEY, index);
-        setResult(RESULT_OK, intent);
-        finish();
+            Intent intent = new Intent();
+            intent.putExtra(FavouriteActivity.FAVOURITE_KEY, item);
+            intent.putExtra(FavouriteActivity.INDEX_KEY, index);
+            setResult(RESULT_OK, intent);
+            finish();
+        }
     }
 }

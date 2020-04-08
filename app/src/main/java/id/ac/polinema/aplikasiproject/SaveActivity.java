@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import id.ac.polinema.aplikasiproject.models.Main;
 
@@ -40,15 +41,17 @@ public class SaveActivity extends AppCompatActivity {
         String description = descriptionInput.getText().toString();
         String link = linkInput.getText().toString();
         String tanggal = tanggalInput.getText().toString();
-
-        item.setNama(description);
-        item.setLink(link);
-        item.setTanggal(tanggal);
-
-        Intent intent = new Intent();
-        intent.putExtra(PentingActivity.MAIN_KEY, item);
-        intent.putExtra(PentingActivity.INDEX_KEY, index);
-        setResult(RESULT_OK, intent);
-        finish();
+        if (description.equals("")||link.equals("")){
+            Toast.makeText(getApplicationContext(), "Data Harus diisi!",Toast.LENGTH_SHORT).show();
+        }else {
+            item.setNama(description);
+            item.setLink(link);
+            item.setTanggal(tanggal);
+            Intent intent = new Intent();
+            intent.putExtra(PentingActivity.MAIN_KEY, item);
+            intent.putExtra(PentingActivity.INDEX_KEY, index);
+            setResult(RESULT_OK, intent);
+            finish();
+        }
     }
 }
