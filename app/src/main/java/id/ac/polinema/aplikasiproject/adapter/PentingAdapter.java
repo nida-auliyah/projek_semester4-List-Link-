@@ -1,6 +1,5 @@
 package id.ac.polinema.aplikasiproject.adapter;
 
-import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -8,7 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,31 +15,31 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 import id.ac.polinema.aplikasiproject.R;
-import id.ac.polinema.aplikasiproject.models.Main;
+import id.ac.polinema.aplikasiproject.models.Penting;
 
-public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
+public class PentingAdapter extends RecyclerView.Adapter<PentingAdapter.ViewHolder> {
     public interface onItemMainListener {
-        void onMainClicked(int index, Main item);
+        void onMainClicked(int index, Penting item);
     }
-    private List<Main> items;
+    private List<Penting> items;
     private onItemMainListener Listener;
 
-    public MainAdapter(List<Main> items, onItemMainListener listener) {
+    public PentingAdapter(List<Penting> items, onItemMainListener listener) {
         this.items = items;
         this.Listener = listener;
     }
 
     @NonNull
     @Override
-    public MainAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+    public PentingAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_main, parent, false);
+                .inflate(R.layout.item_daftarlink, parent, false);
         return new ViewHolder(view);
     }
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
-        final Main item = items.get(position);
+        final Penting item = items.get(position);
         holder.bind(position, item);
         holder.web.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -75,7 +73,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             tanggalText = itemView.findViewById(R.id.text_tanggal);
             web = itemView.findViewById(R.id.fb_web);
         }
-        public void bind(final int index, final Main item) {
+        public void bind(final int index, final Penting item) {
             descriptionText.setText(item.getNama());
             tanggalText.setText(item.getTanggal());
             // TODO: Tambahkan interaksi click di sini

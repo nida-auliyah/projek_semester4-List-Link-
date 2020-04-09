@@ -8,19 +8,17 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 
 import android.view.View;
-import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
-import id.ac.polinema.aplikasiproject.adapter.MainAdapter;
+import id.ac.polinema.aplikasiproject.adapter.PentingAdapter;
 import id.ac.polinema.aplikasiproject.models.Activity;
-import id.ac.polinema.aplikasiproject.models.Main;
+import id.ac.polinema.aplikasiproject.models.Penting;
 
-public class PentingActivity extends AppCompatActivity implements MainAdapter.onItemMainListener {
+public class PentingActivity extends AppCompatActivity implements PentingAdapter.onItemMainListener {
 
     public static final String MAIN_KEY = "MAIN";
     public static final String INDEX_KEY = "INDEX";
@@ -28,7 +26,7 @@ public class PentingActivity extends AppCompatActivity implements MainAdapter.on
     public static final int UPDATE_REQUEST = 2;
 
     private RecyclerView mainsView;
-    private MainAdapter adapter;
+    private PentingAdapter adapter;
     private Activity account;
 
     @Override
@@ -45,15 +43,15 @@ public class PentingActivity extends AppCompatActivity implements MainAdapter.on
             public void onClick(View view) {
                 // TODO: Tambahkan event click fab di sini
 
-                Intent intent = new Intent(PentingActivity.this, SaveActivity.class);
-                intent.putExtra(MAIN_KEY, new Main());
+                Intent intent = new Intent(PentingActivity.this, SavepentingActivity.class);
+                intent.putExtra(MAIN_KEY, new Penting());
                 startActivityForResult(intent, INSERT_REQUEST);
 
             }
         });
 
         account = Application.getAccount();
-        adapter = new MainAdapter(account.getMains(), this);
+        adapter = new PentingAdapter(account.getPentings(), this);
         mainsView.setAdapter(adapter);
 
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(this);
@@ -82,12 +80,12 @@ public class PentingActivity extends AppCompatActivity implements MainAdapter.on
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (resultCode == RESULT_OK) {
-            Main main = data.getParcelableExtra(MAIN_KEY);
+            Penting penting = data.getParcelableExtra(MAIN_KEY);
             if (requestCode == INSERT_REQUEST) {
-                account.addMain(main);
+                account.addMain(penting);
             }else if (requestCode == UPDATE_REQUEST) {
                 int index = data.getIntExtra(INDEX_KEY, 0);
-                account.updateMain(index, main);
+                account.updateMain(index, penting);
             }
             adapter.notifyDataSetChanged();
 
@@ -95,9 +93,9 @@ public class PentingActivity extends AppCompatActivity implements MainAdapter.on
     }
 
     @Override
-    public void onMainClicked(int index, Main item) {
+    public void onMainClicked(int index, Penting item) {
 
-        Intent intent = new Intent(this, SaveActivity.class);
+        Intent intent = new Intent(this, SavepentingActivity.class);
         intent.putExtra(MAIN_KEY, item);
         intent.putExtra(INDEX_KEY, 0);
         startActivityForResult(intent, UPDATE_REQUEST);

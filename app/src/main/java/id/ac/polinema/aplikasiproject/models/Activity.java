@@ -4,32 +4,32 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Activity {
-    private List<Main> mains;
+    private List<Penting> pentings;
     private List<KurangPenting> kp;
     private List<Favourite> f;
 
     public Activity() {
-        this.mains = new ArrayList<>();
+        this.pentings = new ArrayList<>();
         this.kp = new ArrayList<>();
         this.f = new ArrayList<>();
     }
 
 
-    public List<Main> getMains() {
-        return mains;
+    public List<Penting> getPentings() {
+        return pentings;
     }
 
-    public void addMain(Main main) {
-        this.mains.add(main);
+    public void addMain(Penting penting) {
+        this.pentings.add(penting);
     }
 
     public void removeMain(int index) {
-        Main main = mains.get(index);
-        this.mains.remove(main);
+        Penting penting = pentings.get(index);
+        this.pentings.remove(penting);
     }
 
-    public void updateMain(int index, Main main) {
-        this.mains.set(index, main);
+    public void updateMain(int index, Penting penting) {
+        this.pentings.set(index, penting);
     }
 
     public List<KurangPenting> getKurangpenting() {

@@ -3,15 +3,15 @@ package id.ac.polinema.aplikasiproject.models;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-public class Main implements Parcelable {
+public class Penting implements Parcelable {
     private String nama;
     private String link;
     private String tanggal;
 
-    public Main() {
+    public Penting() {
     }
 
-    public Main(String nama, String link, String tanggal) {
+    public Penting(String nama, String link, String tanggal) {
         this.nama = nama;
         this.link = link;
         this.tanggal = tanggal;
@@ -53,21 +53,21 @@ public class Main implements Parcelable {
         dest.writeString(tanggal);
     }
 
-    protected Main(Parcel in) {
+    protected Penting(Parcel in) {
         nama = in.readString();
         link = in.readString();
         tanggal = in.readString();
     }
 
-    public static final Creator<Main> CREATOR = new Creator<Main>() {
+    public static final Creator<Penting> CREATOR = new Creator<Penting>() {
         @Override
-        public Main createFromParcel(Parcel source) {
-            return new Main(source);
+        public Penting createFromParcel(Parcel source) {
+            return new Penting(source);
         }
 
         @Override
-        public Main[] newArray(int size) {
-            return new Main[size];
+        public Penting[] newArray(int size) {
+            return new Penting[size];
         }
     };
 

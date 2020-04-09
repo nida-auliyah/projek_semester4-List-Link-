@@ -4,12 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.content.DialogInterface;
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -24,7 +19,7 @@ public class CategoryActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
 
-        RecyclerView teamsView = findViewById(R.id.rv_teams);
+        RecyclerView teamsView = findViewById(R.id.rv_category);
 
         List<Category> teams = new ArrayList<>();
         teams.add(new Category("https://i.ibb.co/Krs0nb8/high-priority.png", "Link Penting"));

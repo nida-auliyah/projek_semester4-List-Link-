@@ -9,18 +9,18 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import id.ac.polinema.aplikasiproject.models.Main;
+import id.ac.polinema.aplikasiproject.models.Penting;
 
-public class SaveActivity extends AppCompatActivity {
+public class SavepentingActivity extends AppCompatActivity {
     private EditText descriptionInput;
     private EditText linkInput;
     private EditText tanggalInput;
-    private Main item;
+    private Penting item;
     private int index;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_save);
+        setContentView(R.layout.activity_savepenting);
 
         descriptionInput = findViewById(R.id.input_description);
         linkInput = findViewById(R.id.input_link);

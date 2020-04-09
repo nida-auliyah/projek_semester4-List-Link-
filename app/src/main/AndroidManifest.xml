@@ -14,7 +14,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".SavefavouriteActivity"></activity>
         <activity android:name=".SavekpActivity" />
-        <activity android:name=".SaveActivity" />
+        <activity android:name=".SavepentingActivity" />
         <activity android:name=".FavouriteActivity" />
         <activity android:name=".KurangPentingActivity" />
         <activity android:name=".PentingActivity" />

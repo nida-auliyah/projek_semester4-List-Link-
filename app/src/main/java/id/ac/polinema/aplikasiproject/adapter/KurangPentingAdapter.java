@@ -15,7 +15,6 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.List;
 
-import id.ac.polinema.aplikasiproject.KurangPentingActivity;
 import id.ac.polinema.aplikasiproject.R;
 import id.ac.polinema.aplikasiproject.models.KurangPenting;
 
@@ -36,7 +35,7 @@ public class KurangPentingAdapter extends RecyclerView.Adapter<KurangPentingAdap
     @Override
     public KurangPentingAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.item_main, parent, false);
+                .inflate(R.layout.item_daftarlink, parent, false);
         return new ViewHolder(view);
     }
 
