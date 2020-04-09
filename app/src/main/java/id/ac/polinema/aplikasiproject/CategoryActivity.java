@@ -27,9 +27,9 @@ public class CategoryActivity extends AppCompatActivity {
         RecyclerView teamsView = findViewById(R.id.rv_teams);
 
         List<Category> teams = new ArrayList<>();
-        teams.add(new Category("https://upload.wikimedia.org/wikipedia/en/thumb/0/0c/Liverpool_FC.svg/360px-Liverpool_FC.svg.png", "Link Penting"));
-        teams.add(new Category("https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manchester_City_FC_badge.svg/360px-Manchester_City_FC_badge.svg.png", "Link Kurang Penting"));
-        teams.add(new Category("https://upload.wikimedia.org/wikipedia/en/thumb/e/eb/Manchester_City_FC_badge.svg/360px-Manchester_City_FC_badge.svg.png", "Link Favorite"));
+        teams.add(new Category("https://i.ibb.co/Krs0nb8/high-priority.png", "Link Penting"));
+        teams.add(new Category("https://i.ibb.co/M1Zpzqm/medium-priority.png", "Link Kurang Penting"));
+        teams.add(new Category("https://i.ibb.co/6YYqSb4/favourite.png", "Link Favorite"));
 
         CategoryAdapter adapter = new CategoryAdapter(this, teams);
         teamsView.setAdapter(adapter);
