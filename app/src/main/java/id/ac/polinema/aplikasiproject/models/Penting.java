@@ -58,7 +58,7 @@ public class Penting implements Parcelable {
         link = in.readString();
         tanggal = in.readString();
     }
-
+    //implement dari parcerable
     public static final Creator<Penting> CREATOR = new Creator<Penting>() {
         @Override
         public Penting createFromParcel(Parcel source) {

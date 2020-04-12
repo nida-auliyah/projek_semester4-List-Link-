@@ -32,6 +32,7 @@ public class PentingAdapter extends RecyclerView.Adapter<PentingAdapter.ViewHold
     @NonNull
     @Override
     public PentingAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        // mendapatkan view dari inflater
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.item_daftarlink, parent, false);
         return new ViewHolder(view);
@@ -39,8 +40,10 @@ public class PentingAdapter extends RecyclerView.Adapter<PentingAdapter.ViewHold
 
     @Override
     public void onBindViewHolder(@NonNull final ViewHolder holder, int position) {
+        // mengambil item yang hendak diletakkan
         final Penting item = items.get(position);
         holder.bind(position, item);
+        // setOnClickListener untuk floatingActionButton
         holder.web.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -67,12 +70,14 @@ public class PentingAdapter extends RecyclerView.Adapter<PentingAdapter.ViewHold
         TextView descriptionText;
         TextView tanggalText;
         FloatingActionButton web;
+        // proses bind viewholder
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             descriptionText = itemView.findViewById(R.id.text_description);
             tanggalText = itemView.findViewById(R.id.text_tanggal);
             web = itemView.findViewById(R.id.fb_web);
         }
+        // memudahkan proses bind ViewHolder dan data serta penambahan interaksi
         public void bind(final int index, final Penting item) {
             descriptionText.setText(item.getNama());
             tanggalText.setText(item.getTanggal());
