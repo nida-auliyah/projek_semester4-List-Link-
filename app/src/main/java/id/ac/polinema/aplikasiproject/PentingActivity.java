@@ -67,7 +67,7 @@ public class PentingActivity extends AppCompatActivity implements PentingAdapter
             @Override
             public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
                 int index = viewHolder.getAdapterPosition();
-                account.removeMain(index);
+                account.removePenting(index);
                 adapter.notifyDataSetChanged();
 
             }
@@ -82,10 +82,10 @@ public class PentingActivity extends AppCompatActivity implements PentingAdapter
         if (resultCode == RESULT_OK) {
             Penting penting = data.getParcelableExtra(MAIN_KEY);
             if (requestCode == INSERT_REQUEST) {
-                account.addMain(penting);
+                account.addPenting(penting);
             }else if (requestCode == UPDATE_REQUEST) {
                 int index = data.getIntExtra(INDEX_KEY, 0);
-                account.updateMain(index, penting);
+                account.updatePenting(index, penting);
             }
             adapter.notifyDataSetChanged();
 

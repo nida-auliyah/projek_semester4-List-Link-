@@ -19,16 +19,16 @@ public class Activity {
         return pentings;
     }
 
-    public void addMain(Penting penting) {
+    public void addPenting(Penting penting) {
         this.pentings.add(penting);
     }
 
-    public void removeMain(int index) {
+    public void removePenting(int index) {
         Penting penting = pentings.get(index);
         this.pentings.remove(penting);
     }
 
-    public void updateMain(int index, Penting penting) {
+    public void updatePenting(int index, Penting penting) {
         this.pentings.set(index, penting);
     }
 

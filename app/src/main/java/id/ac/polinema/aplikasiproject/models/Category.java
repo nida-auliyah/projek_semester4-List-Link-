@@ -1,8 +1,5 @@
 package id.ac.polinema.aplikasiproject.models;
 
-import android.os.Parcel;
-import android.os.Parcelable;
-
 public class Category {
     private String logo;
     private String nama;
